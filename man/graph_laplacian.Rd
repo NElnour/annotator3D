@@ -4,12 +4,10 @@
 \alias{graph_laplacian}
 \title{Laplacian of contact matrix}
 \usage{
-graph_laplacian(W, normalized = TRUE)
+graph_laplacian(W)
 }
 \arguments{
-\item{W}{the chromatin interaction/contact matrix}
-
-\item{normalized}{}
+\item{W}{similarity matrix}
 }
 \value{
 matrix Laplacian transformation of the contact matrix
@@ -22,4 +20,6 @@ Calculates the Laplacian transformation of the contact matrix. This function is 
 }
 \author{
 Nura Kawa
+
+Nada Elnour
 }

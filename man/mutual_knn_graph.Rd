@@ -4,12 +4,12 @@
 \alias{mutual_knn_graph}
 \title{Nearest neighbourdetection based on Euclidean distances}
 \usage{
-mutual_knn_graph(X, nn = 10)
+mutual_knn_graph(x, nn = 10)
 }
 \arguments{
-\item{nn}{number of k-nearest neighbours to consider}
-
 \item{x}{the chromatin interaction/contact matrix}
+
+\item{nn}{number of k-nearest neighbours to consider}
 }
 \value{
 matrix
