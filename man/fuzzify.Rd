@@ -4,12 +4,12 @@
 \alias{fuzzify}
 \title{Fuzzy Cluster Membership with C-means}
 \usage{
-fuzzify(data, eigen_mat, k, distance, fit)
+fuzzify(data, eigen_mat, k, distance = "euclidean", fit = 1.2)
 }
 \value{
 A dataframe of chrosome regions in contact, their predicted TAD
 clusters, and the probability of their membership.
 }
 \description{
-Adds probability of cluster membership to gene sequence
+Adds probability of contact cluster membership to TADs
 }

@@ -1,16 +1,15 @@
 #' Fuzzy Cluster Membership with C-means
 #' 
-#' Adds probability of cluster membership to gene sequence
+#' Adds probability of contact cluster membership to TADs
 #'
 #' @return A dataframe of chrosome regions in contact, their predicted TAD
 #' clusters, and the probability of their membership.
 #' @export
-#' @import cluster
 #'
 fuzzify <-
-    function(data, eigen_mat, k, distance, fit) {
+    function(data, eigen_mat, k, distance="euclidean", fit=1.2) {
         
-        clustered <- cluster::fanny(eigen_mat, k=k, metric = distance, memb.exp = fit)
+        
 
         loci <- paste(rownames(data), colnames(data), sep = "-")
         cluster <- clustered$classification
