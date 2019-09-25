@@ -1,16 +1,16 @@
-#' soften
+#' Fuzzy Cluster Membership with C-means
+#' 
+#' Adds probability of cluster membership to gene sequence
 #'
 #' @return
 #' @export
 #' @import cluster
-#' @import igraph
 #'
 #' @examples
 fuzzify <-
     function(data, eigen_mat, k, distance, fit) {
-        g <- igraph::graph.adjacency(data, mode="undirected", weighted = TRUE)
-
-        clustered <- cluter::fanny(eigen_mat, k=k, metric = distance, memb.exp = fit)
+        
+        clustered <- cluster::fanny(eigen_mat, k=k, metric = distance, memb.exp = fit)
 
         loci <- paste(rownames(data), colnames(data), sep = "-")
         cluster <- clustered$classification
