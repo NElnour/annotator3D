@@ -11,7 +11,7 @@
 #' @return eigenvectors of clustered components in X for
 #'  kmeans analysis
 #'
-#' @example
+#' @examples
 #' clustered <- spectral_clustering(X)
 #'
 #' @export

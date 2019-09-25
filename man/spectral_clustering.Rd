@@ -20,6 +20,10 @@ eigenvectors of clustered components in X for
 \description{
 Creates eigenvectors of clustered components in the chromatin interaction/contact matrix. This function is authored by Nura Kawa (2018).
 }
+\examples{
+clustered <- spectral_clustering(X)
+
+}
 \references{
 {\cite{Kawa, N. 2018. Spectral Clustering. RPubs. URL: \url{https://rpubs.com/nurakawa/spectral-clustering}}}
 }

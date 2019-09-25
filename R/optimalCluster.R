@@ -2,16 +2,19 @@
 #'
 #' @return
 #' @export
-#' @import mclust
+#' @import cluster
+#' @import igraph
 #'
 #' @examples
-soften <-
-    function(data, eigen_mat) {
-        clustered <- Mclust(eigen_mat)
+fuzzify <-
+    function(data, eigen_mat, k, distance, fit) {
+        g <- igraph::graph.adjacency(data, mode="undirected", weighted = TRUE)
+
+        clustered <- cluter::fanny(eigen_mat, k=k, metric = distance, memb.exp = fit)
 
         loci <- paste(rownames(data), colnames(data), sep = "-")
         cluster <- clustered$classification
-        pval <- clustered$z
+        pval <- clustered$membership
         names <- colnames(pval)
 
         for(i in 1:(dim(pval)[2])){
