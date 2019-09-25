@@ -23,7 +23,6 @@ motifParse <- function(){
 #' @return
 #' @export
 #'
-#' @examples
 readHiC <- function(HSA_filename){
     data <- utils::read.delim(HSA_filename, header=FALSE)
     end <- dim(data)[2] - 1

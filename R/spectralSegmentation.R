@@ -65,7 +65,7 @@ mutual_knn_graph <- function(x, nn = 10)
 
 #' Laplacian of contact matrix
 #'
-#' Calculates the Laplacian transformation of the contact matrix. This function is authored by Nura Kawa (2018).
+#' Calculates the Laplacian transformation of the contact matrix. This function is authored by Nura Kawa (2018) and modified by Nada Elnour (2019).
 #' @author Nura Kawa
 #' @author Nada Elnour
 #' @references{\cite{Kawa, N. 2018. Spectral Clustering. RPubs. URL: \url{https://rpubs.com/nurakawa/spectral-clustering}}}

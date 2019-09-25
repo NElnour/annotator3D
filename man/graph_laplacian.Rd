@@ -13,7 +13,7 @@ graph_laplacian(W)
 matrix Laplacian transformation of the contact matrix
 }
 \description{
-Calculates the Laplacian transformation of the contact matrix. This function is authored by Nura Kawa (2018).
+Calculates the Laplacian transformation of the contact matrix. This function is authored by Nura Kawa (2018) and modified by Nada Elnour (2019).
 }
 \references{
 {\cite{Kawa, N. 2018. Spectral Clustering. RPubs. URL: \url{https://rpubs.com/nurakawa/spectral-clustering}}}

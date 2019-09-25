@@ -2,11 +2,11 @@
 #' 
 #' Adds probability of cluster membership to gene sequence
 #'
-#' @return
+#' @return A dataframe of chrosome regions in contact, their predicted TAD
+#' clusters, and the probability of their membership.
 #' @export
 #' @import cluster
 #'
-#' @examples
 fuzzify <-
     function(data, eigen_mat, k, distance, fit) {
         

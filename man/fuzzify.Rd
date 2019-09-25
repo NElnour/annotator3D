@@ -2,10 +2,14 @@
 % Please edit documentation in R/optimalCluster.R
 \name{fuzzify}
 \alias{fuzzify}
-\title{soften}
+\title{Fuzzy Cluster Membership with C-means}
 \usage{
 fuzzify(data, eigen_mat, k, distance, fit)
 }
+\value{
+A dataframe of chrosome regions in contact, their predicted TAD
+clusters, and the probability of their membership.
+}
 \description{
-soften
+Adds probability of cluster membership to gene sequence
 }

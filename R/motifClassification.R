@@ -3,7 +3,6 @@
 #' @return
 #' @export
 #'
-#' @examples
 classify <- function(){
 
 }
