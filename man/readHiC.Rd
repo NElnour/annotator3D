@@ -6,6 +6,13 @@
 \usage{
 readHiC(HSA_filename)
 }
+\value{
+matrix
+}
 \description{
 Title
+}
+\examples{
+data <- readHiC("/data/chr9_HSA.txt")
+
 }

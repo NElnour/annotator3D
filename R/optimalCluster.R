@@ -27,6 +27,20 @@ fuzzify <-
         return(output)
     }
 
+#' Title
+#'
+#' @param data 
+#' @param cluster_method 
+#'
+#' @return dataframe
+#' @export
+#'
+#' @examples
+#' data.cl <- cluster(data)
+#' 
+#' @importFrom stats hclust dist
+#' @importFrom dendextend cutree color_branches color_labels
+#' 
 cluster <- function(data, cluster_method="ward.D2") {
     k <- floor(dim(data)[1] / 2) - 1
     data_scaled <- scale(data)
@@ -43,9 +57,20 @@ cluster <- function(data, cluster_method="ward.D2") {
     
     plot(dendrogram)
     subtads <- tad.group(dendrogram, tads=tads, k)
-    
+    return(subtads)
 }
 
+#' Title
+#'
+#' @param dendrogram 
+#' @param tads 
+#' @param k 
+#' @param plot_subtads 
+#'
+#' @return dataframe
+#' @importFrom dendextend get_subdendrograms
+#' @importFrom stringr str_replace_all
+#' 
 tad.group <- function(dendrogram, tads, k, plot_subtads = FALSE) {
     subtads <- dendextend::get_subdendrograms(dendrogram, k)
     

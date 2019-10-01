@@ -1,18 +1,24 @@
 #' Title
 #'
-#' @return
+#' @return none
 #' @export
 #'
 #' @examples
+#' 
 readMotifs <- function(){
 
 }
 
 #' Title
 #'
-#' @return
+#' @return matrix
 #' @export
-#'
+#' 
+#' @examples
+#' data <- readHiC("/data/chr9_HSA.txt")
+#' 
+#' @importFrom utils read.delim
+#' 
 readHiC <- function(HSA_filename){
     data <- utils::read.delim(HSA_filename, header=FALSE)
     end <- dim(data)[2] - 1
@@ -24,6 +30,15 @@ readHiC <- function(HSA_filename){
     return(contact_mat)
 }
 
+#' Title
+#'
+#' @param NList 
+#' @param LinearizeDataFrames 
+#' @param NameSep 
+#' @param ForceNames 
+#'
+#' @return list
+#' 
 LinearizeNestedList <- function(NList, LinearizeDataFrames=FALSE,
                                 NameSep="/", ForceNames=FALSE) {
     # LinearizeNestedList:

@@ -7,11 +7,15 @@ Maintainer: N Elnour <NElnour@github.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE
-Depends: R (>= 3.1.0)
+Depends: R (>= 3.5.0)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports: 
     stats,
     cluster,
-    utils
+    utils,
+    dendextend (>= 1.12.0),
+    stringr
+Suggests: 
+    testthat

@@ -4,7 +4,7 @@
 \alias{fuzzify}
 \title{Fuzzy Cluster Membership with C-means}
 \usage{
-fuzzify(data, eigen_mat, k, distance = "euclidean", fit = 1.2)
+fuzzify(hard_clusters)
 }
 \value{
 A dataframe of chrosome regions in contact, their predicted TAD

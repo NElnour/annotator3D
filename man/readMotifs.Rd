@@ -6,6 +6,12 @@
 \usage{
 readMotifs()
 }
+\value{
+none
+}
 \description{
 Title
+}
+\examples{
+
 }

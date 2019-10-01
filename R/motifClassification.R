@@ -1,6 +1,6 @@
 #' Title
 #'
-#' @return
+#' @return none
 #' @export
 #'
 classify <- function(){
