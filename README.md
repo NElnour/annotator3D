@@ -63,4 +63,4 @@ Wrapper function `cluster` relies on agglomerative clustering by `stats::hclust`
 
 Function `classify` relies on `bin_motifs` and `calculate_overflow` to calculate a soft classification score of motifs into the TADs and sub-TADs by position. It outputs a list of motifs the TADs/sub-TADs for which their scores are non-zero.
 
-Finally, function `LinearizeNestedList` was written by [Akhil S. Bhel]https://gist.github.com/akhilsbehl/5990864).
+Finally, function `LinearizeNestedList` was written by [Akhil S. Bhel](https://gist.github.com/akhilsbehl/5990864).
