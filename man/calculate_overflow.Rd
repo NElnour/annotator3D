@@ -17,6 +17,6 @@ calculate_overflow(motif_thresh, tad_thresh, motif_len)
 A double measuring the proportion of the motif's length to the TAD boundary.
 }
 \description{
-Calculates 'overflow' of a motif's length across TAD boundaries. It returns 
+Calculates 'overflow' of a motif's length across TAD boundaries. It returns
 the proportion of motif's length that overlaps with the TAD specified by tad_thresh.
 }
