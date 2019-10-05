@@ -3,12 +3,13 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
+![](./inst/extdata/Elnour_N_A1.png)
+
 Three-dimensional organization of the chromosome is a factor of gene expression regulation. Visualizations of 3D information is often presented separately from genome/epigenome features and motifs. One existing approach to integrate topological information is simply layering the TADs using GViz/ggbio. While powerful tools to correlate several annotation features, there is no current function to highlight the membership of features and motifs to distinct TADs using GViz/ggbio.
 
 The goal of annotator3D is to annotate motifs into hierarchically clustered TADs. annotator3D does so by:
 1. Soft-classifying motifs into TADs by positions (functions found in `classification.R`);
 2. Extending GViz with a clusteredAnnotation class to highlight TAD membership (work in progress)
-![](./inst/extdata/Elnour_N_A1.png)
 
 ## Installation
 
