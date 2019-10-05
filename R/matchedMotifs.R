@@ -1,0 +1,23 @@
+#' Matched Motifs that Regulate H5-K9 Methylation
+#'
+#' The data set is obtained by scanning murine PPMs provided by Ngo \emph{et al.} with FIMO against mm10 chromsome 18. The top 50 matches by \emph{q}=value were selected and organized into a dataframe.
+#' 
+#' @format A dataframe with 50 rows and 10 variables:
+#' \describe{
+#'   \item{motif_id}{chromosome 18 fragments start coordinates}
+#'   \item{motif_alt_id}{chromosome 18 fragments end coordinates}
+#'   \item{sequence_name}{chromsome name at which the matches were found}
+#'   \item{start}{start coordinates of the matched motif on chromsome 18}
+#'   \item{stop}{end coordinate of the matched motif on chromosome 18}
+#'   \item{strand}{Either "+" or "-" denoting the strand orientation of the match}
+#'   \item{score}{Maximum likelihood score}
+#'   \item{p.value}{The probability that the motif matchs to the chromsome region bounded by start and stop coordinates.}
+#'   \item{q.value}{The \emph{p}-value corrected by Benjamini and Hochsberg false discvery rate for multiple testing}
+#'   \item{matched_sequence}{Consensus sequence of matched motif}
+#' }
+#' 
+#' @references {
+#' Ngo V, Chen Z, Zhang K, Whitaker J, Wang M, Wang W. (2019) Epigenomic analysis reveals DNA motifs regulating histone modifications in human and mouse. \emph{PNAS} \strong{116}(9): 3668--3677.
+#' }
+#' @source \url{https://www.pnas.org/content/116/9/3668}
+"matchedMotifs"
