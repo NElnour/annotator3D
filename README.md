@@ -55,7 +55,9 @@ The author of this package is Nada Elnour. The functions within this package inc
 2. `classify`
     * `bin_motifs`
     * `calculate_overflow`
+    
 Wrapper function `cluster` relies on agglomerative clustering by `stats::hclust` function. It converts the resultant clusters into a dendrogram that are cut to generate predicted TADs and sub-TADs. It also uses tad.group and Bhel's `LinearizeNestedList` function to get the full path within sub-TADs from the root to the leaf. The user has the option to plot the predicted sub-TADs individually, and the output of `cluster` is:
+
 1. a dataframe of hierarchically clustered chromsome segments, and their memeberships
 2. a dendrogram plot whose colours denote the clusters.
 
