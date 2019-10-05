@@ -65,6 +65,6 @@ Function `classify` relies on `bin_motifs` and `calculate_overflow` to calculate
 
 This function also contains two datasets:
 1. Hi-C chromatin interaction matrix of chromosome 18. The data is based on mouse embryonic stem cell genome, and binning resolution of 40 kb (http://sysbio.rnet.missouri.edu/3dgenome/GSDB_old/details.php?id=TE1402WS).
-2. Matched motif output by FIMO after scanning above chromsome 18 with 369 mouse motifs recently reported to regulate histone modification  [Dataset_S01](https://www.pnas.org/content/116/9/3668/tab-figures-data).
+2. Matched motif output by FIMO after scanning above chromsome 18 with 369 mouse motifs recently reported to regulate histone modification [Dataset_S01](https://www.pnas.org/content/116/9/3668/tab-figures-data) (Ngo, *et al*, 2019).
 
 Finally, function `LinearizeNestedList` was written by [Akhil S. Bhel](https://gist.github.com/akhilsbehl/5990864).
