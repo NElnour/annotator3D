@@ -70,6 +70,6 @@ This function also contains two datasets:
 Finally, function `LinearizeNestedList` was written by [Akhil S. Bhel](https://gist.github.com/akhilsbehl/5990864).
 
 ## References
-Dixon JR, Selvaraj S, Yue F, Kim A *et al.* (2012) Topological domains in mammalian genomes identified by analysis of chromatin interactions. *Nature* **485**(7398):376--80. PMID: \href{https://www.ncbi.nlm.nih.gov/pubmed/22495300}{22495300}
+Dixon JR, Selvaraj S, Yue F, Kim A *et al.* (2012) Topological domains in mammalian genomes identified by analysis of chromatin interactions. *Nature* **485**(7398):376--80. PMID: [22495300](https://www.ncbi.nlm.nih.gov/pubmed/22495300)
 
 Ngo V, Chen Z, Zhang K, Whitaker J, Wang M, Wang W. (2019) Epigenomic analysis reveals DNA motifs regulating histone modifications in human and mouse. *PNAS* **116**(9): 3668--3677.
