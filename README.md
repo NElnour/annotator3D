@@ -64,12 +64,12 @@ Wrapper function `cluster` relies on agglomerative clustering by `stats::hclust`
 Function `classify` relies on `bin_motifs` and `calculate_overflow` to calculate a soft classification score of motifs into the TADs and sub-TADs by position. It outputs a list of motifs the TADs/sub-TADs for which their scores are non-zero.
 
 This function also contains two datasets:
-1. Hi-C chromatin interaction matrix of chromosome 18. The data is based on mouse embryonic stem cell genome, and binning resolution of 40 kb (http://sysbio.rnet.missouri.edu/3dgenome/GSDB_old/details.php?id=TE1402WS) ().
-2. Matched motif output by FIMO after scanning above chromsome 18 with 369 mouse motifs recently reported to regulate histone modification [Dataset_S01](https://www.pnas.org/content/116/9/3668/tab-figures-data) (Ngo, *et al*, 2019).
+1. Hi-C chromatin interaction matrix of chromosome 18. The data is based on mouse embryonic stem cell genome, and binning resolution of [40 kb](http://sysbio.rnet.missouri.edu/3dgenome/GSDB_old/details.php?id=TE1402WS) (Dixon *et al.* 2012).
+2. Matched motif output by FIMO after scanning above chromsome 18 with 369 mouse motifs recently reported to regulate histone modification [Dataset_S01](https://www.pnas.org/content/116/9/3668/tab-figures-data) (Ngo *et al.*, 2019).
 
 Finally, function `LinearizeNestedList` was written by [Akhil S. Bhel](https://gist.github.com/akhilsbehl/5990864).
 
 ## References
-
+Dixon JR, Selvaraj S, Yue F, Kim A *et al.* (2012) Topological domains in mammalian genomes identified by analysis of chromatin interactions. *Nature* **485**(7398):376--80. PMID: \href{https://www.ncbi.nlm.nih.gov/pubmed/22495300}{22495300}
 
 Ngo V, Chen Z, Zhang K, Whitaker J, Wang M, Wang W. (2019) Epigenomic analysis reveals DNA motifs regulating histone modifications in human and mouse. *PNAS* **116**(9): 3668--3677.
