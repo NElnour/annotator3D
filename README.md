@@ -26,10 +26,10 @@ library(annotator3D)
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-data("mESC.chrom.interactions")
+data("mESChromInteractions")
 data("matchedMotifs"")
 
-tads <- cluster(mESC.chrom.interactions, offset=40000)
+tads <- cluster(mESChromInteractions, offset=40000)
 ```
 ![](./inst/extdata/dendrogram_tads.png)
 
