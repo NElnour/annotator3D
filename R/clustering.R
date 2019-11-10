@@ -63,9 +63,7 @@ cluster <-
             leaflab = dend_labels,
             ylab = "Height",
             xlab = "Genomic Bins",
-            main = "Agglomerative Clustering of
-                                         Chromosome Interaction Matrix"
-        )
+            main = "Chromosome Interaction Matrix Agglomerative Clusters")
 
         # label sub-TADs and TADs into hierarchical clusters
         subtads <-
