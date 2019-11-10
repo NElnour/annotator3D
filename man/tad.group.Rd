@@ -23,9 +23,11 @@ A dataframe with four attributes:
 \item \emph{segment1}: the start coordinate of a Hi-C bin
 \item \emph{segment2}: the end coordinate of a Hi-C bin
 \item \emph{flat_cluster}: predicted cluster group of TADs output by hcluster
-\item \emph{hcluster}: full hierarchical subclusters of the TAD given the flat_cluster
+\item \emph{hcluster}: full hierarchical subclusters of the TAD given the
+flat_cluster
 }
 }
 \description{
-Finds and groups sub-TADs and TADs into hierarchical clusters, with the option of the plotting them separatelyy.
+Finds and groups sub-TADs and TADs into hierarchical clusters, with the
+option of the plotting them separatelyy.
 }

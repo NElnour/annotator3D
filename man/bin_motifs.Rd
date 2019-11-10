@@ -7,16 +7,22 @@
 bin_motifs(motifs, tad, j, M, offset)
 }
 \arguments{
-\item{motifs}{A dataframe of matched motifs with at least the following attributes:
+\item{motifs}{A dataframe of matched motifs with at least the following
+attributes:
 \itemize{
-\item \emph{start}: an integer denoting the starting coordinate of matched motif
+\item \emph{start}: an integer denoting the starting coordinate of matched
+motif
 \item \emph{stop}: an integer denoting the end coordinate of matched motif
 }}
 
-\item{tad}{A row of a dataframe containing hierarchically clustered TADs. Compatible with output of the annotator3D::cluster function. The row should have at least the following attributes:
+\item{tad}{A row of a dataframe containing hierarchically clustered TADs.
+Compatible with output of the annotator3D::cluster function. The row should
+have at least the following attributes:
 \itemize{
-\item \emph{segment1}: an integer denoting the starting coordinate of the predicted TAD
-\item \emph{segment2}: an integer denoting the end coordinate of the predicted TAD
+\item \emph{segment1}: an integer denoting the starting coordinate of the
+predicted TAD
+\item \emph{segment2}: an integer denoting the end coordinate of the
+predicted TAD
 }}
 
 \item{j}{An integer denoting the index of the TAD for classification}
@@ -29,6 +35,7 @@ bin_motifs(motifs, tad, j, M, offset)
 M A n-by-m numeric matrix storing calculated membership scores.
 }
 \description{
-Assuming equal chance of assignment given the matched sequence, this function calculates membership
+Assuming equal chance of assignment given the matched sequence, this function
+calculates membership
 proportion of motifs per TAD.
 }

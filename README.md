@@ -16,8 +16,9 @@ The goal of annotator3D is to annotate motifs into hierarchically clustered TADs
 You can install the released version of annotator3D with:
 
 ``` r
-library(devtools)
+require(devtools)
 devtools::install_github("NElnour/annotator3D")
+library(annotator3D)
 ```
 
 ## Example
@@ -25,17 +26,15 @@ devtools::install_github("NElnour/annotator3D")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(annotator3D)
+data("mESC.chrom.interactions")
+data("matchedMotifs"")
 
-data(hsa)
-data(matchedMotifs)
-
-tads <- cluster(hsa, offset=40000)
+tads <- cluster(mESC.chrom.interactions, offset=40000)
 ```
 ![](./inst/extdata/dendrogram_tads.png)
 
 ``` r
-tads.cl <- classify(hsa, matchedMotifs, offset=40000)
+tads.cl <- classify(matchedMotifs, tads, offset=40000)
 head(tads.cl)
 
 $H3K9me3_783_cluster_hc1_hc2_0.15_L2
@@ -67,9 +66,11 @@ This function also contains two datasets:
 1. Hi-C chromatin interaction matrix of chromosome 18. The data is based on mouse embryonic stem cell genome, and binning resolution of [40 kb](http://sysbio.rnet.missouri.edu/3dgenome/GSDB_old/details.php?id=TE1402WS) (Dixon *et al.* 2012).
 2. Matched motif output by FIMO after scanning above chromsome 18 with 369 mouse motifs recently reported to regulate histone modification [Dataset_S01](https://www.pnas.org/content/116/9/3668/tab-figures-data) (Ngo *et al.*, 2019).
 
-Finally, function `LinearizeNestedList` was written by [Akhil S. Bhel](https://gist.github.com/akhilsbehl/5990864).
+Finally, function `LinearizeNestedList` was written by [Akhil S. Bhel](https://github.com/mrdwab/mrdwabmisc/) (Mahto, Turner, and Bhel, 2016).
 
 ## References
 Dixon JR, Selvaraj S, Yue F, Kim A *et al.* (2012) Topological domains in mammalian genomes identified by analysis of chromatin interactions. *Nature* **485**(7398):376--80. PMID: [22495300](https://www.ncbi.nlm.nih.gov/pubmed/22495300)
 
 Ngo V, Chen Z, Zhang K, Whitaker J, Wang M, Wang W. (2019) Epigenomic analysis reveals DNA motifs regulating histone modifications in human and mouse. *PNAS* **116**(9): 3668--3677.
+
+Mahto A, Turner R, Bhel AS. (2016) mrdwabmisc: Miscellaneous R functions, mostly for data processing. https://github.com/mrdwab/mrdwabmisc/.

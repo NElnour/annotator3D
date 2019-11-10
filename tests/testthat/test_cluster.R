@@ -1,8 +1,8 @@
 context("Hierarchical Clustering")
 library(annotator3D)
 
-data(hsa)
-res <- cluster(hsa, 40000)
+data(mESChromInteractions)
+res <- cluster(mESChromInteractions, 40000)
 
 test_that("cluster has four columns", {
     expect_equal(dim(res)[2], 4)
@@ -12,13 +12,13 @@ test_that("cluster has four columns", {
     expect_type(res$hcluster, "integer")
 })
 
-test_that("cluster produces 1000 rows on hsa", {
+test_that("cluster produces 1000 rows on mESChromInteractions", {
     expect_equal(dim(res)[1], 1000)
 })
 
-test_that("cluster needs both hsa and offset", {
+test_that("cluster needs both mESChromInteractions and offset", {
     expect_error(cluster())
-    expect_error(cluster(hsa))
+    expect_error(cluster(mESChromInteractions))
     expect_error(offset = 40000)
 })
 

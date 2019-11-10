@@ -12,20 +12,26 @@ cluster(hsa, offset, cluster_method = "ward.D2", plot_subtads = FALSE,
 
 \item{offset}{An integer denoting the binning resolution of the Hi-C dataset}
 
-\item{cluster_method}{a string indicating the agglomeration method to be used for hierarchical clustering. It is "ward.D2" by default, but can also be set to "ward.D", "single", "complete", "average" or "centroid".}
+\item{cluster_method}{a string indicating the agglomeration method to be used
+for hierarchical clustering. It is "ward.D2" by default, but can also be set
+to "ward.D", "single", "complete", "average" or "centroid".}
 
-\item{plot_subtads}{A boolean denoting whether predicted sub-TADs should be plotted individually}
+\item{plot_subtads}{A boolean denoting whether predicted sub-TADs should be
+plotted individually}
 
-\item{dend_labels}{a string one of "none", "perpindicular" or "textlike" for no, vertical, or horizontal labels, respectively.}
+\item{dend_labels}{a string one of "none", "perpindicular" or "textlike" for
+no, vertical, or horizontal labels, respectively.}
 }
 \value{
-dataframe
+plt_dendrogram a graphics.plot object storing cluster-annotated dendrogam.
 }
 \description{
-This is a wrapper function streamlining hierarchical clustering of Hi-C contact matrices into topologically-associating domains(TADs). It uses hclust and dendrogram cutting to predict TADs and sub-TADs.
+This is a wrapper function streamlining hierarchical clustering of Hi-C
+contact matrices into topologically-associating domains(TADs). It uses hclust
+and dendrogram cutting to predict TADs and sub-TADs.
 }
 \examples{
-data(hsa)
-data.cl <- cluster(hsa, offset=40000)
+data("mESChromInteractions")
+data.cl <- cluster(mESChromInteractions, offset=40000)
 
 }

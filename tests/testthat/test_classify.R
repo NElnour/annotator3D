@@ -1,9 +1,10 @@
 context("Motif Classification")
 library(annotator3D)
 
-data(hsa)
+data("mESChromInteractions")
 data("matchedMotifs")
-tads <- cluster(hsa, offset = 40000)
+
+tads <- cluster(mESChromInteractions, offset = 40000)
 res <- classify(matchedMotifs, tads)
 
 motif <- matchedMotifs

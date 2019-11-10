@@ -1,11 +1,16 @@
 Package: annotator3D
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Classification of  genome motifs or features to TADs
 Version: 0.1.0
-Author: person("N", "Elnour", email = "NElnour@github.com", role = c("aut", "cre"))
+Author: person("N", "Elnour", email = "NElnour@github.com", 
+        role = c("aut", "cre"))
 Maintainer: N Elnour <NElnour@github.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: annotator3D classifies genomic annotations into 
+    topologically-associateing domains (TADs).
+    The TADs may or may not be identified with agglomerative clustering. 
+    In the provided example, 
+    hierarchical clustering is employed to calculate the probability 
+    of TAD and sub-TAD membership.
 License: MIT + file LICENSE
 Depends: R (>= 3.5.0)
 Encoding: UTF-8

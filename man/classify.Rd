@@ -7,32 +7,42 @@
 classify(motifs, tads, offset = 40000)
 }
 \arguments{
-\item{motifs}{A dataframe of matched motifs with at least the following attributes:
+\item{motifs}{A dataframe of matched motifs with at least the following
+attributes:
 \itemize{
 \item \emph{motif_id}: a string array containing the motifs' names
-\item \emph{start}: an integer array cotaining the starting coordinates of matched motif
-\item \emph{stop}: an integer array containing the end coordinate of matched motif
+\item \emph{start}: an integer array cotaining the starting coordinates of
+matched motif
+\item \emph{stop}: an integer array containing the end coordinate of matched
+motif
 }}
 
-\item{tads}{A dataframe of hierarchically clustered TADs with at least the following attributes:
+\item{tads}{A dataframe of hierarchically clustered TADs with at least the
+following attributes:
 #' \itemize{
-\item \emph{segment1}: an integer array containing the starting coordinates of the predicted TADs
-\item \emph{segment2}: an integer array containing the end coordinates of the predicted TADs
-\item \emph{hcluster}: a "-" separated string array containing the hierarchical classification of predicted TADs.
+\item \emph{segment1}: an integer array containing the starting coordinates
+of the predicted TADs
+\item \emph{segment2}: an integer array containing the end coordinates of
+the predicted TADs
+\item \emph{hcluster}: a "-" separated string array containing the
+hierarchical classification of predicted TADs.
 }}
 
 \item{offset}{A numeric denoting the resolution of Hi-C data bins.}
 }
 \value{
-A list of motifs and their corresponding non-zero membership probabilities to TADs.
+A list of motifs and their corresponding non-zero membership
+probabilities to TADs.
 }
 \description{
-Classifies motifs by location into hierarchically clustered Hi-C domains. It assumes that each base position has an equal chance of occurring in a topologically-associating domain (TAD)
+Classifies motifs by location into hierarchically clustered Hi-C domains.
+It assumes that each base position has an equal chance of occurring in a
+topologically-associating domain (TAD)
 }
 \examples{
-data(hsa)
-data(matchedMotifs)
-tads <- cluster(hsa, offset=40000)
+data("mESChromInteractions")
+data("matchedMotifs")
+tads <- cluster(mESChromInteractions, offset=40000)
 tads.cl <- classify(matchedMotifs, tads, offset=40000)
 
 }
