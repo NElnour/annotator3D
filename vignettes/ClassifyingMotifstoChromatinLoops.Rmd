@@ -1,12 +1,27 @@
 ---
-title: "Classifying Motifs to Chromatin Loops"
-output: rmarkdown::html_vignette
+title: "Classifying Motifs to Chromatin Loops with annotator3D"
+output: 
+  rmarkdown::html_vignette
+  toc: true
 vignette: >
   %\VignetteIndexEntry{ClassifyingMotifstoChromatinLoops}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
+# Introduction
+
+The package **annotator3D** `r packageVersion("mclust")` is an R package to classify DNA motifs or features into chromatin loops. There are four public or private functions in **annotator3D**:
+* **Public functions**:
+    *`classify` which acts as a master function to classify the motifs/features; and
+    * `visualize_annotation` which returns an **ggbio** annotation track.
+* **Private functions**:
+    * `bin_motifs`, a helper function to `classify`. It calculates the frequencies of the feature in different loops.
+    *`calculate_overflow`, a helper function to `bin_motifs`. It calculates how much of a feature overlaps with the loop region.
+
+To give you an idea of how to use the functions, follow along with this tutorial.
+
+# Loading annotator3D
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -16,4 +31,22 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(annotator3D)
+sessionInfo()
 ```
+
+# Loading Sample Data
+First let's load the chromatin loops dataset from
+```{r load_data}
+data("mESC_matrix_interactions")
+head(mESC_matrix_interactions)
+```
+Now to load a mapped feature
+
+# Classifying Motifs into Chromatin Loops
+
+# Visualize Classified Motifs
+1. histogram of mappings
+
+1. select most significant mapping
+2. get positions of mappings -> parse into ranges
+3. return annotation track
