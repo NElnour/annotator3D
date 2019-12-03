@@ -17,7 +17,7 @@ You can install the released version of annotator3D with:
 
 ``` r
 require(devtools)
-devtools::install_github("NElnour/annotator3D")
+devtools::install_github("NElnour/annotator3D", build_vignettes = TRUE)
 library(annotator3D)
 ```
 
