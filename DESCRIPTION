@@ -24,4 +24,7 @@ Imports:
     stringr,
     graphics
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
