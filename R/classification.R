@@ -59,7 +59,7 @@ classify <- function(motifs, tads, offset = 40000) {
 
     # bin_motifs
     for (j in 1:(m - 1)) {
-        M <-  bin_motifs(motifs, tads[j, ], j, M, offset = offset)
+        M <-  bin_motifs(motifs, tads[j, ], j, M, m, offset = offset)
     }
 
     tmp <- rowsum(M, rownames(M))
@@ -108,7 +108,7 @@ classify <- function(motifs, tads, offset = 40000) {
 #'
 #' @return M A n-by-m numeric matrix storing calculated membership scores.
 #'
-bin_motifs <- function(motifs, tad, j, M, offset) {
+bin_motifs <- function(motifs, tad, j, M, m, offset) {
     n <- dim(motifs)[1]
     next_tad = c((tad$segment1 + offset), (tad$segment2 + offset)) # boundaries
     # of next TAD
@@ -133,8 +133,10 @@ bin_motifs <- function(motifs, tad, j, M, offset) {
 
         if (motifs$start[i] >= tad$segment1 &&
             motifs$stop[i] <= tad$segment2) {
+
             # motif is entirely contained in current TAD
-            M[i, j] <- M[i, j] + (1 / n) # divide by n
+            M[i, j] <- M[i, j] + (1 / m)
+
         } else if (motifs$stop[i] >= tad$segment1 &&
                    motifs$stop[i] <= tad$segment2 &&
                    motifs$start[i] < (tad$segment1)) {
@@ -144,11 +146,11 @@ bin_motifs <- function(motifs, tad, j, M, offset) {
                 M[i, j] <-
                     M[i, j] + calculate_overflow(motifs$stop[i],
                                                  tad$segment1, motif_len) /
-                    (n)
+                    (m)
                 M[i, j - 1] <-
                     M[i, j - 1] + calculate_overflow(motifs$start[i],
                                                      tad$segment1, motif_len) /
-                    (n)
+                    (m)
             }
         } else if (motifs$stop[i] > (tad$segment2) &&
                    motifs$start[i] >= tad$segment1 &&
@@ -160,11 +162,11 @@ bin_motifs <- function(motifs, tad, j, M, offset) {
                 M[i, j + 1] <-
                     M[i, j + 1] + calculate_overflow(motifs$stop[i],
                                                      tad$segment2, motif_len) /
-                    (n)
+                    (m)
                 M[i, j - 1] <-
                     M[i, j] + calculate_overflow(motifs$start[i],
                                                  tad$segment2, motif_len) /
-                    (n)
+                    (m)
             }
         }
     }
