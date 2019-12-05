@@ -2,7 +2,7 @@ library(annotator3D)
 library(shiny)
 
 gui <- fluidPage(
-  titlePanel("Classify Motifs into Chromatin Loops"),
+  titlePanel(h1("Classify Motifs into Chromatin Loops", align="center")),
 
   sidebarPanel(
     h4("Main Control"),
@@ -19,7 +19,6 @@ gui <- fluidPage(
     textInput("chr", h5("Choromosome no.:"), value = "Enter chromosome number"),
     #tags$hr(),
     h4("Gviz paramaters"),
-    textInput("file_name", h5("Motif file name:")),
     sliderInput(
       "from",
       "From:",
@@ -46,12 +45,15 @@ server <- function(input, output) {
     req(input$motifs)
     req(input$chromLoops)
 
-    matched_motifs <- read.delim(input$motifs$datapath,
-                                 header = TRUE,
-                                 sep = "\t",
-                                 stringsAsFactors = FALSE)
+    matched_motifs <- read.delim(
+      input$motifs$datapath,
+      header = TRUE,
+      sep = "\t",
+      stringsAsFactors = FALSE
+    )
 
-    matched_motifs <- matched_motifs[complete.cases(matched_motifs), ]
+    matched_motifs <-
+      matched_motifs[complete.cases(matched_motifs),]
 
     check1 <- assertthat::are_equal(
       colnames(matched_motifs),
@@ -77,12 +79,14 @@ server <- function(input, output) {
       )
     }
 
-    loops <- read.delim(input$chromLoops$datapath,
-                        header = TRUE,
-                        sep = "\t",
-                        stringsAsFactors = FALSE)
+    loops <- read.delim(
+      input$chromLoops$datapath,
+      header = TRUE,
+      sep = "\t",
+      stringsAsFactors = FALSE
+    )
 
-    loops <- loops[complete.cases(loops), ]
+    loops <- loops[complete.cases(loops),]
 
     check2 <-
       assertthat::are_equal(colnames(loops), c("chr", "start", "stop"))
@@ -94,10 +98,10 @@ server <- function(input, output) {
     motifs.cl <- classify(matched_motifs, loops)
 
     colnames(motifs.cl) <- c("chromosome",
-              "start",
-              "end",
-              "symbol",
-              "score")
+                             "start",
+                             "end",
+                             "symbol",
+                             "score")
 
     motifs.cl <- filter_motifs(motifs.cl, thresh = input$threshold)
 
