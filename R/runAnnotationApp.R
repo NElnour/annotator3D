@@ -8,7 +8,6 @@
 #'
 #' Example TSV files are included in \code{extdata} to run annotator3D.
 #'
-#' @return
 #' @export
 #'
 #' @examples
@@ -16,11 +15,13 @@
 #'   runAnnotator()
 #' }
 #'
+#' @importFrom shiny runApp
+#'
 runAnnotator <- function() {
-  annDir <- system.file("shinyApp",
-              package= "annotator3D")
+  path_tp_app <- system.file("shinyApp",
+                        package = "annotator3D")
 
-  shiny::runApp(annDir, display.mode = "normal")
+  shiny::runApp(appDir=path_tp_app, display.mode = "normal")
 }
 
 # [END]
