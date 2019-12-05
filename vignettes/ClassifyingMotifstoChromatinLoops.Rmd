@@ -1,8 +1,6 @@
 ---
 title: "Classifying Motifs to Chromatin Loops with annotator3D"
-output: 
-  rmarkdown::html_vignette
-  toc: true
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{ClassifyingMotifstoChromatinLoops}
   %\VignetteEngine{knitr::rmarkdown}
@@ -35,18 +33,49 @@ sessionInfo()
 ```
 
 # Loading Sample Data
-First let's load the chromatin loops dataset from
-```{r load_data}
-data("mESC_matrix_interactions")
-head(mESC_matrix_interactions)
+First let's load the chromatin loops dataset from ENCODE. It contains predicted loops
+in the A549 cell line's chromosome 18 (Salameh, *et al.*, 2019).
+```{r load_chromLoops}
+data("A549ChromLoops")
+head(A549ChromLoops)
 ```
-Now to load a mapped feature
+Now to load a matched feature:
+```{r load_motifs}
+data("matchedMotifs")
+head(matchedMotifs)
+```
+`matchedMotifs` contains motifs observed to predict methylation of H3 histones' lysine 9 (Ngo *et al.*, 2019).
 
 # Classifying Motifs into Chromatin Loops
 
-# Visualize Classified Motifs
-1. histogram of mappings
+For motif classification, simply call the `classify` function in **annotator3D**
+```{r classify_motifs}
+classify(matchedMotifs, A549ChromLoops)
+```
+It creates a local file directory called **BEDs** where it stores classified motifs as BED files. Each motif will have its own BED file. If you would like to treat all motifs equally, you can simply run concatenate the files contents into a BED master file. For this example, we are working with one motif, however, so we will continue with the output **H3K9me3.bed** file.
 
-1. select most significant mapping
-2. get positions of mappings -> parse into ranges
-3. return annotation track
+# Visualize Classified Motifs
+To get the classified annotation track, simply call `antrack <- classifiedAnnotationTrack("<path to>/H3K9me3.bed", gen=gen)` where
+```{r visualize_data}
+gen <- c("mm10")
+names(gen) <- "chr18"
+```
+
+Here `thresh` refers to a lower bound for loop membership score. You can see the distribution of this score from BED file.
+
+Now, you can layer this track with other Gviz tracks as follows
+```{r layer_plots}
+data(antrack)
+library(Gviz)
+
+genometrack <- GenomeAxisTrack()
+
+plotTracks(list(genometrack, antrack))
+```
+
+
+## References
+Ngo V, Chen Z, Zhang K, Whitaker J, Wang M, Wang W. (2019) Epigenomic analysis reveals DNA motifs regulating histone modifications in human and mouse. *PNAS* **116**(9): 3668--3677.
+
+Salameh TJ,  Wang X, Song F, Zhang B, Wright SM, Khunsriraksakul C, Yue F. A supervised learning framework for chromatin loop detection in genome-wide contact maps. biorXiv. doi: https://doi.org/10.1101/739698.
+
