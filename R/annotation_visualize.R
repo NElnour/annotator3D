@@ -1,4 +1,7 @@
-#' Title
+#' Get Classified Motif Annotation Track
+#'
+#' This function returns an annotated GeneRegionTrack that can be plotted alone
+#' or layered with other Gvix/ggbio tracks.
 #'
 #' @param motif_bed A string of the full path to the BED file
 #' containing the classified motifs
@@ -7,7 +10,7 @@
 #' significance. Motifs with membership scores greater than or equal to thresh
 #' will be returned.
 #'
-#' @return A Formal Class AnnotationTrack for enriched motif with GRanges
+#' @return A Formal Class GeneRegionTrack for enriched motif with GRanges
 #' corresponding to motif's genomic ranges,
 #' @export
 #'
@@ -18,7 +21,7 @@
 #' classify(matchedMotifs, A549ChromLoops)
 #' gen <- c("mm10")
 #' names(gen) <- "chr18"
-#' antrack <- classifiedAnnotationTrack("chromLoops.cl"./BEDs/H3K9me3.bed", gen)
+#' antrack <- classifiedAnnotationTrack("./BEDs/H3K9me3.bed", gen)
 #' }
 #'
 #'@import Gviz
@@ -97,7 +100,7 @@ filter_motifs <- function(motifs, thresh = 0) {
 #' classify(matchedMotifs, A549ChromLoops)
 #' gen <- c("mm10")
 #' names(gen) <- "chr18"
-#' antrack <- classifiedAnnotationTrack("chromLoops.cl"./BEDs/H3K9me3.bed", gen)
+#' antrack <- classifiedAnnotationTrack("./BEDs/H3K9me3.bed", gen)
 #' plot_layered_gviz(antrack, gen)
 #' }
 #'
