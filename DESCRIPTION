@@ -18,13 +18,12 @@ LazyData: true
 RoxygenNote: 6.1.1
 Imports: 
     stats,
-    cluster,
     utils,
-    dendextend (>= 1.12.0),
     stringr,
-    graphics
+    Gviz
 Suggests: 
     testthat,
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+biocViews: Gviz
