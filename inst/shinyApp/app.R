@@ -1,8 +1,20 @@
+# The following script links to the runAnnotator function in
+# runAnnotationApp.R. It handles presentation of Gviz plots through
+# a Shiny app, in the same way calling the individual functions of
+# annotator3D would (see attached vignette).
+#
+# To build this app, I followed RStudio's tutorial
+# (found at https://shiny.rstudio.com/tutorial/).
+#
+# Author: Nada Elnour
+
 library(annotator3D)
 library(shiny)
 
 gui <- fluidPage(
-  titlePanel(h1("Classify Motifs into Chromatin Loops", align="center")),
+  titlePanel(h1(
+    "Classify Motifs into Chromatin Loops", align = "center"
+  )),
 
   sidebarPanel(
     h4("Main Control"),
@@ -53,7 +65,7 @@ server <- function(input, output) {
     )
 
     matched_motifs <-
-      matched_motifs[complete.cases(matched_motifs),]
+      matched_motifs[complete.cases(matched_motifs), ]
 
     check1 <- assertthat::are_equal(
       colnames(matched_motifs),
@@ -86,7 +98,7 @@ server <- function(input, output) {
       stringsAsFactors = FALSE
     )
 
-    loops <- loops[complete.cases(loops),]
+    loops <- loops[complete.cases(loops), ]
 
     check2 <-
       assertthat::are_equal(colnames(loops), c("chr", "start", "stop"))
