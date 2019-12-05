@@ -2,7 +2,10 @@
 
 export(classifiedAnnotationTrack)
 export(classify)
+export(plot_layered_gviz)
+export(runAnnotator)
 import(Gviz)
+importFrom(shiny,runApp)
 importFrom(stats,complete.cases)
 importFrom(stringr,str_extract)
 importFrom(stringr,str_split_fixed)

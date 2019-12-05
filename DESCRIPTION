@@ -20,7 +20,8 @@ Imports:
     stats,
     utils,
     stringr,
-    Gviz
+    Gviz,
+    shiny
 Suggests: 
     testthat,
     knitr,
