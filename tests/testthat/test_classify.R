@@ -1,11 +1,10 @@
 context("Motif Classification")
 library(annotator3D)
 
-data("mESChromInteractions")
+data("A549ChromLoops")
 data("matchedMotifs")
 
-tads <- cluster(mESChromInteractions, offset = 40000)
-res <- classify(matchedMotifs, tads)
+results <- classify(matchedMotifs, A549ChromLoops)
 
 motif <- matchedMotifs
 colnames(motif) <-
@@ -23,7 +22,7 @@ colnames(motif) <-
     )
 
 test_that("classify needs motif_id column names outlined in docs", {
-    expect_error(classify(motif, tads))
+    expect_error(classify(motif, clusteredAnnotationTrack))
 })
 
 motif <- matchedMotifs
@@ -42,7 +41,7 @@ colnames(motif) <-
     )
 
 test_that("classify needs start column name outlined in docs", {
-    expect_error(classify(motif, tads))
+    expect_error(classify(motif, clusteredAnnotationTrack))
 })
 
 motif <- matchedMotifs
@@ -61,38 +60,32 @@ colnames(motif) <-
     )
 
 test_that("classify needs stop column name outlined in docs", {
-    expect_error(classify(motif, tads))
+    expect_error(classify(motif, A549ChromLoops))
 })
 
-tad <- tads
-colnames(tad) <- c("x", "segment2", "flat_cluster", "hcluster")
+tad <- A549ChromLoops
+colnames(tad) <- c("x", "stop", "flat_cluster")
 
 test_that("classify needs segment1 column name outlined in docs", {
     expect_error(classify(matchedMotifs, tad))
 })
 
-tad <- tads
-colnames(tad) <- c("segmetn1", "x", "flat_cluster", "hcluster")
+tad <- A549ChromLoops
+colnames(tad) <- c("start", "x", "flat_cluster")
 
 test_that("classify needs segment2 column name outlined in docs", {
     expect_error(classify(matchedMotifs, tad))
 })
 
-tad <- tads
-colnames(tad) <- c("segmetn1", "segment2", "flat_cluster", "x")
 
-test_that("classify needs hcluster column name outlined in docs", {
-    expect_error(classify(matchedMotifs, tad))
-})
-
-test_that("classify needs both motifs and tads in order", {
+test_that("classify needs both motifs and A549ChromLoops in order", {
     expect_error(classify())
     expect_error(classify(matchedMotifs))
-    expect_error(classif(tads))
-    expect_error(classify(tads, matchedMotifs))
+    expect_error(classif(A549ChromLoops))
+    expect_error(classify(A549ChromLoops, matchedMotifs))
 })
 
 
 test_that("classify outputs a list", {
-    expect_type(res, "list")
+    expect_type(results, "list")
 })

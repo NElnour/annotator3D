@@ -1,15 +1,14 @@
 context("Data Imports Correctly")
 library(annotator3D)
 
-data("mESChromInteractions")
+data("A549ChromLoops")
 data("matchedMotifs")
 
-test_that("chr18 HSA dataset is loaded correctly", {
-    expect_silent(data(mESChromInteractions))
-    expect_equal(dim(mESChromInteractions)[1], 1000)
-    expect_equal(dim(mESChromInteractions)[2], 1000)
-    expect_type(mESChromInteractions, "double")
-    expect_true(class(mESChromInteractions)== "matrix")
+test_that("chr18 chromLoops dataset is loaded correctly", {
+    expect_silent(data(A549ChromLoops))
+    expect_equal(dim(A549ChromLoops)[1], 216)
+    expect_equal(dim(A549ChromLoops)[2], 3)
+    expect_true(class(A549ChromLoops)== "data.frame")
 })
 
 test_that("FIMO matched motifs' dataset is loaded correctly", {
