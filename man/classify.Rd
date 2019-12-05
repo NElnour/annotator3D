@@ -4,7 +4,7 @@
 \alias{classify}
 \title{Motif Soft Classification into Topologically-associating Domains}
 \usage{
-classify(motifs, tads, offset = 40000)
+classify(motifs, chromLoops)
 }
 \arguments{
 \item{motifs}{A dataframe of matched motifs with at least the following
@@ -17,32 +17,23 @@ matched motif
 motif
 }}
 
-\item{tads}{A dataframe of hierarchically clustered TADs with at least the
+\item{chromLoops}{A dataframe of hierarchically clustered chromatin loops with at least the
 following attributes:
 #' \itemize{
-\item \emph{segment1}: an integer array containing the starting coordinates
-of the predicted TADs
-\item \emph{segment2}: an integer array containing the end coordinates of
-the predicted TADs
-\item \emph{hcluster}: a "-" separated string array containing the
-hierarchical classification of predicted TADs.
+\item \emph{start}: an integer array containing the starting coordinates
+of the predicted chromatin loops
+\item \emph{stop}: an integer array containing the end coordinates of
+the predicted chromatin loops
 }}
-
-\item{offset}{A numeric denoting the resolution of Hi-C data bins.}
-}
-\value{
-A list of motifs and their corresponding non-zero membership
-probabilities to TADs.
 }
 \description{
-Classifies motifs by location into hierarchically clustered Hi-C domains.
+Classifies motifs by location into hierarchically clustered chromatin loops.
 It assumes that each base position has an equal chance of occurring in a
-topologically-associating domain (TAD)
+chromatin loop.
 }
 \examples{
-data("mESChromInteractions")
+data("A549ChromLoops")
 data("matchedMotifs")
-tads <- cluster(mESChromInteractions, offset=40000)
-tads.cl <- classify(matchedMotifs, tads, offset=40000)
+classify(matchedMotifs, A549ChromLoops)
 
 }

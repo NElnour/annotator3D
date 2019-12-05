@@ -2,23 +2,23 @@
 % Please edit documentation in R/classification.R
 \name{calculate_overflow}
 \alias{calculate_overflow}
-\title{Calculate Amount of Motif Length to Hard TAD Boundary}
+\title{Calculate Amount of Motif Length to Hard chromatin loop Boundary}
 \usage{
-calculate_overflow(motif_thresh, tad_thresh, motif_len)
+calculate_overflow(motif_thresh, chromLoop_thresh, motif_len)
 }
 \arguments{
 \item{motif_thresh}{An integer denoting the motif's coordinate.}
 
-\item{tad_thresh}{An integer denoting the TAD boundary (hard)}
+\item{chromLoop_thresh}{An integer denoting the chromatin loop boundary (hard)}
 
 \item{motif_len}{An integer denoting the length of the motif}
 }
 \value{
-A double measuring the proportion of the motif's length to the TAD
+A double measuring the proportion of the motif's length to the chromatin loop
 boundary.
 }
 \description{
-Calculates 'overflow' of a motif's length across TAD boundaries. It returns
-the proportion of motif's length that overlaps with the TAD specified by
-tad_thresh.
+Calculates 'overflow' of a motif's length across chromatin loop boundaries. It returns
+the proportion of motif's length that overlaps with the chromatin loop specified by
+chromLoop_thresh.
 }

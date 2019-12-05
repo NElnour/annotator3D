@@ -2,9 +2,9 @@
 % Please edit documentation in R/classification.R
 \name{bin_motifs}
 \alias{bin_motifs}
-\title{Calculate Motif Membership Probabilty per TAD}
+\title{Calculate Motif Membership Probabilty per chromatin loop}
 \usage{
-bin_motifs(motifs, tad, j, M, offset)
+bin_motifs(motifs, chromLoops, j, M, m)
 }
 \arguments{
 \item{motifs}{A dataframe of matched motifs with at least the following
@@ -15,27 +15,27 @@ motif
 \item \emph{stop}: an integer denoting the end coordinate of matched motif
 }}
 
-\item{tad}{A row of a dataframe containing hierarchically clustered TADs.
+\item{chromLoops}{A row of a dataframe containing hierarchically clustered chromatin loops.
 Compatible with output of the annotator3D::cluster function. The row should
 have at least the following attributes:
 \itemize{
-\item \emph{segment1}: an integer denoting the starting coordinate of the
-predicted TAD
-\item \emph{segment2}: an integer denoting the end coordinate of the
-predicted TAD
+\item \emph{start}: an integer denoting the starting coordinate of the
+predicted chromatin loop
+\item \emph{stop}: an integer denoting the end coordinate of the
+predicted chromatin loop
 }}
 
-\item{j}{An integer denoting the index of the TAD for classification}
+\item{j}{An integer denoting the index of the chromatin loop for classification}
 
-\item{M}{A n-by-m numeric matrix to be used as a dynamic array of one TAD.}
+\item{M}{An n-by-m numeric matrix to be used as a dynamic array of one chromatin loop.}
 
-\item{offset}{A numeric denoting the resolution of Hi-C data bins.}
+\item{m}{An integer denoting the number of predicted loops.}
 }
 \value{
-M A n-by-m numeric matrix storing calculated membership scores.
+M An n-by-m numeric matrix storing calculated membership scores.
 }
 \description{
 Assuming equal chance of assignment given the matched sequence, this function
 calculates membership
-proportion of motifs per TAD.
+proportion of motifs per chromatin loop.
 }
