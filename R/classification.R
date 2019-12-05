@@ -13,7 +13,8 @@
 #' \item \emph{stop}: an integer array containing the end coordinate of matched
 #' motif
 #' }
-#' @param chromLoops A dataframe of hierarchically clustered chromatin loops with at least the
+#' @param chromLoops A dataframe of hierarchically clustered chromatin loops
+#' with at least the
 #' following attributes:
 #' #' \itemize{
 #' \item \emph{start}: an integer array containing the starting coordinates
@@ -23,6 +24,9 @@
 #' }
 #'
 #' @export
+#'
+#' @return A dataframe of classified of motifs, their membership scores, and
+#' locations
 #'
 #' @examples
 #' data("A549ChromLoops")
@@ -52,29 +56,46 @@ classify <- function(motifs, chromLoops) {
     n <- dim(motifs)[1]
     M <- matrix(0, n, m)
     colnames(M) <- paste0(chromLoops$start, "-", chromLoops$stop)
-    rows <- motifs$motif_id
+    if (all(is.na(motifs$motif_alt_id)))
+    {
+        rows <- motifs$motif_id
+    } else {
+        rows <- motifs$motif_alt_id
+    }
+
     rownames(M) <- rows
 
     # bin_motifs
     for (j in 1:(m - 1)) {
-        M <-  bin_motifs(motifs, chromLoops[j,], j, M, m)
+        M <-  bin_motifs(motifs, chromLoops[j, ], j, M, m)
     }
 
     tmp <- rowsum(M, rownames(M))
 
     # return non-zero memberships for each motif
+    all_motifs <- data.frame(
+        chrom = character(),
+        start = integer(),
+        end = integer(),
+        symbol = character(),
+        score = numeric()
+    )
+
     membership <- vector("list", dim(tmp)[1])
     names(membership) <- rownames(tmp)
 
     for (idx in 1:length(membership)) {
         name <- names(membership[idx])
-        curr <- tmp[idx,]
+        curr <- tmp[idx, ]
         nonzeros <-  curr[curr != 0]
         if (!is.null(nonzeros))
         {
-            write_to_BED(nonzeros, name, chrom)
+            motif <- write_to_BED(nonzeros, name, chrom)
+            all_motifs <- rbind(all_motifs, motif)
         }
     }
+
+    return(all_motifs)
 }
 
 #' Calculate Motif Membership Probabilty per chromatin loop
@@ -204,16 +225,15 @@ write_to_BED <- function(motif_ranges, motif_name, chrom) {
 
     # parse classified motifs list in BED format
     range <- stringr::str_split_fixed(names(motif_ranges), "[-]", 2)
-    motif_name <- stringr::str_extract(motif_name, "^[^_]+(?=_)")
 
     storage <- paste0(wd, "/", "BEDs")
 
     bed <- data.frame(
         chrom = chrom,
-        chromStart = range[, 1],
-        chromEnd = range[, 2],
-        name = motif_name,
-        score = motif_ranges
+        start = as.integer(range[, 1]),
+        end = as.integer(range[, 2]),
+        symbol = motif_name,
+        score = as.numeric(motif_ranges)
     )
 
     utils::write.table(
@@ -226,5 +246,7 @@ write_to_BED <- function(motif_ranges, motif_name, chrom) {
         append = T
     )
 
-
+    return(bed)
 }
+
+# [END]
