@@ -56,6 +56,8 @@ server <- function(input, output) {
     plot(runif(1000))
     req(input$motifs)
     req(input$chromLoops)
+    req(input$genome)
+    req(input$chr)
 
     matched_motifs <- read.delim(
       input$motifs$datapath,
