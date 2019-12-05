@@ -48,7 +48,7 @@ gui <- fluidPage(
     actionButton("submit", "Submit")
   ),
 
-  mainPanel(plotOutput("GvizLayers"))
+  mainPanel(plotOutput("GvizLayers", height="700px"))
 )
 
 server <- function(input, output) {

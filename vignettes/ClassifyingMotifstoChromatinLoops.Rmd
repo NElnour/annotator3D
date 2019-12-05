@@ -65,14 +65,16 @@ Here `thresh` refers to a lower bound for loop membership score. You can see the
 
 Now, you can layer this track with other Gviz tracks as follows
 ```{r layer_plots}
-data(antrack)
+data("antrack")
 library(Gviz)
 
-genometrack <- GenomeAxisTrack()
-
-plotTracks(list(genometrack, antrack))
+plotTracks(antrack)
 ```
+or for the layered Gviz figure
 
+``` {r layer_gviz}
+plot_layered_gviz(antrack, gen=gen, from = 1, to = 10000000)
+```
 
 ## References
 Ngo V, Chen Z, Zhang K, Whitaker J, Wang M, Wang W. (2019) Epigenomic analysis reveals DNA motifs regulating histone modifications in human and mouse. *PNAS* **116**(9): 3668--3677.

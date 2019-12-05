@@ -54,7 +54,8 @@ classifiedAnnotationTrack <- function(motif_bed, gen, thresh = 0) {
     chromosome = chrom,
     name = "Mapped Features",
     transcript = "symbol",
-    transcriptAnnotation = "symbol"
+    transcriptAnnotation = "symbol",
+    cex=18
   )
 
   return(antrack)
