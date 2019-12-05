@@ -2,8 +2,8 @@ citHeader("To cite annotator3D in publications use:")
 
 citEntry(
   entry    = "Unpublished",
-  title    = annotator3D,
-  author   = Nada Elnour,
+  title    = "annotator3D",
+  author   = "Nada Elnour",
   year     = "2019",
   note     = "Unpublished",
   textVersion = paste(
