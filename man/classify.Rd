@@ -17,7 +17,8 @@ matched motif
 motif
 }}
 
-\item{chromLoops}{A dataframe of hierarchically clustered chromatin loops with at least the
+\item{chromLoops}{A dataframe of hierarchically clustered chromatin loops
+with at least the
 following attributes:
 #' \itemize{
 \item \emph{start}: an integer array containing the starting coordinates
@@ -25,6 +26,10 @@ of the predicted chromatin loops
 \item \emph{stop}: an integer array containing the end coordinates of
 the predicted chromatin loops
 }}
+}
+\value{
+A dataframe of classified of motifs, their membership scores, and
+locations
 }
 \description{
 Classifies motifs by location into hierarchically clustered chromatin loops.

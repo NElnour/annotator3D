@@ -2,7 +2,7 @@
 % Please edit documentation in R/annotation_visualize.R
 \name{classifiedAnnotationTrack}
 \alias{classifiedAnnotationTrack}
-\title{Title}
+\title{Get Classified Motif Annotation Track}
 \usage{
 classifiedAnnotationTrack(motif_bed, gen, thresh = 0)
 }
@@ -17,9 +17,21 @@ significance. Motifs with membership scores greater than or equal to thresh
 will be returned.}
 }
 \value{
-A Formal Class AnnotationTrack for enriched motif with GRanges
+A Formal Class GeneRegionTrack for enriched motif with GRanges
 corresponding to motif's genomic ranges,
 }
 \description{
-Title
+This function returns an annotated GeneRegionTrack that can be plotted alone
+or layered with other Gvix/ggbio tracks.
+}
+\examples{
+\dontrun{
+data("A549ChromLoops")
+data("matchedMotifs")
+classify(matchedMotifs, A549ChromLoops)
+gen <- c("mm10")
+names(gen) <- "chr18"
+antrack <- classifiedAnnotationTrack("./BEDs/H3K9me3.bed", gen)
+}
+
 }
