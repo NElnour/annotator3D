@@ -76,7 +76,7 @@ This package also contains three datasets:
 The author of this package is Nada Elnour. 
 
 ## References
-Dixon JR, Selvaraj S, Yue F, Kim A *et al.* (2012) Topological domains in mammalian genomes identified by analysis of chromatin interactions. *Nature* **485**(7398):376--80. PMID: [22495300](https://www.ncbi.nlm.nih.gov/pubmed/22495300)
+Dixon JR, Selvaraj S, Yue F, Kim A *et al.* (2012) Topological domains in mammalian genomes identified by analysis of chromatin interactions. *Nature* **485**(7398): 376--80. PMID: [22495300](https://www.ncbi.nlm.nih.gov/pubmed/22495300)
 
 Ngo V, Chen Z, Zhang K, Whitaker J, Wang M, Wang W. (2019) Epigenomic analysis reveals DNA motifs regulating histone modifications in human and mouse. *PNAS* **116**(9): 3668--3677.
 
