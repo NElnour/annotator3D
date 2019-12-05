@@ -84,8 +84,3 @@ test_that("classify needs both motifs and A549ChromLoops in order", {
     expect_error(classif(A549ChromLoops))
     expect_error(classify(A549ChromLoops, matchedMotifs))
 })
-
-
-test_that("classify outputs a list", {
-    expect_type(results, "list")
-})
