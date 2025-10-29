@@ -3,7 +3,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-Three-dimensional organization of the chromosome is a factor of gene expression regulation. Visualizations of 3D information is often presented separately from genome/epigenome features and motifs. One existing approach to integrate topological information is simply layering the chromatin loops using **Gviz**. While powerful tools to correlate several annotation features, there is no current function to highlight the membership of features and motifs to chromatin loops using **Gviz**.
+Three-dimensional organization of the chromosome is a factor of gene expression regulation. Visualizations of 3D information are often presented separately from genome/epigenome features and motifs. One existing approach to integrate topological information is simply layering the chromatin loops using **Gviz**. While powerful tools to correlate several annotation features, there is no current function to highlight the membership of features and motifs to chromatin loops using **Gviz**.
 
 The goal of **annotator3D** is to annotate motifs into hierarchical chromatin loops. **annotator3D** does so by:
 1. Soft-classifying motifs into chromatin loops by positions (functions found in `classification.R`);
